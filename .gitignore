@@ -39,3 +39,6 @@ secrets/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Local assignment handout
+HW_Mlops_01_edited.pdf
