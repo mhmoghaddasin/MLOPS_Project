@@ -1,0 +1,16 @@
+[
+  {
+    "version_id": "v1",
+    "hash": "5dd35a2f283c42e939eb79b7d7f441e9",
+    "description": "Reference training data from dataset_v1.csv",
+    "n_rows": 400,
+    "created_at": "2026-09-08T10:56:25Z"
+  },
+  {
+    "version_id": "v2",
+    "hash": "5207c1cf58415d71c9cfb50a84ea1356",
+    "description": "Second data version from dataset_v2.csv with shifted feature distributions",
+    "n_rows": 480,
+    "created_at": "2026-09-08T10:56:25Z"
+  }
+]

@@ -1,0 +1,40 @@
+{
+  "model_version": "model_v1",
+  "created_at": "2026-09-08T10:57:00Z",
+  "data_version": "v1",
+  "metric": {
+    "accuracy": 0.6125,
+    "f1_score": 0.4745762711864407
+  },
+  "model_type": "logistic_regression",
+  "input_features": [
+    "tenure_months",
+    "monthly_charges",
+    "total_charges",
+    "num_services",
+    "support_tickets",
+    "avg_session_minutes",
+    "login_frequency",
+    "contract_length",
+    "payment_delay_days",
+    "credit_score",
+    "age",
+    "num_dependents"
+  ],
+  "selected_features": [
+    "tenure_months",
+    "monthly_charges",
+    "total_charges",
+    "support_tickets",
+    "avg_session_minutes",
+    "login_frequency",
+    "contract_length",
+    "payment_delay_days",
+    "credit_score",
+    "num_dependents"
+  ],
+  "preprocessing": {
+    "scaling": "standard",
+    "feature_selection_k": 10
+  }
+}

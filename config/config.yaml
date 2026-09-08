@@ -1,25 +1,63 @@
 # ML Project Configuration
-# TODO: Fill in the values below
 
 data:
-  raw_path: "data/raw/"
+  raw_path: "../"
+  train_file: "dataset_v1.csv"
+  drift_file: "dataset_v2.csv"
+  target_column: "churn"
   processed_path: "data/processed/"
-  test_size:    # TODO: e.g., 0.2
-  random_state: # TODO: e.g., 42
+  test_size: 0.2
+  random_state: 42
 
 features:
-  scaling:      # TODO: "standard" or "minmax" or "none"
-  feature_selection_k: # TODO: e.g., 10
+  scaling: "standard"
+  feature_selection_k: 10
 
 model:
-  type:         # TODO: "random_forest", "logistic_regression", or "svm"
+  type: "logistic_regression"
   params:
-    # TODO: Add hyperparameters for your chosen model
+    C: 1.0
+    max_iter: 1000
+    random_state: 42
+    class_weight: "balanced"
 
 experiments:
-  mlflow_tracking_uri: "http://localhost:5000"
+  mlflow_tracking_uri: "sqlite:///experiments/mlflow.db"
   experiment_name: "mlops_homework_01"
+  runs:
+    - name: "v1_random_forest"
+      data_version: "v1"
+      data_file: "dataset_v1.csv"
+      model_type: "random_forest"
+      params:
+        n_estimators: 100
+        max_depth: 6
+        random_state: 42
+        class_weight: "balanced"
+    - name: "v1_logistic_regression"
+      data_version: "v1"
+      data_file: "dataset_v1.csv"
+      model_type: "logistic_regression"
+      params:
+        C: 1.0
+        max_iter: 1000
+        random_state: 42
+        class_weight: "balanced"
+    - name: "v2_random_forest"
+      data_version: "v2"
+      data_file: "dataset_v2.csv"
+      model_type: "random_forest"
+      params:
+        n_estimators: 150
+        max_depth: 8
+        random_state: 42
+        class_weight: "balanced"
 
 monitoring:
-  drift_threshold: # TODO: e.g., 0.05
+  drift_threshold: 0.05
+  mean_shift_threshold: 0.1
+  drift_features:
+    - "monthly_charges"
+    - "support_tickets"
+    - "credit_score"
   log_path: "experiments/logs/"
