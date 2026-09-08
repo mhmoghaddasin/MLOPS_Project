@@ -1,46 +1,70 @@
-"""
-Tests for Model Training Module
-TODO: Write pytest tests for the following cases:
-"""
 import pytest
 import pandas as pd
 import numpy as np
 
-# TODO: Import your functions
-# from src.models.train_model import get_model, train_model, evaluate_model
+from src.models.train_model import evaluate_model, get_model, train_model
 
 
 class TestGetModel:
-    """TODO: Implement tests for model creation."""
+    """Tests for model creation."""
 
     def test_random_forest(self):
-        """Test Random Forest model creation.
-        TODO: Call get_model("random_forest", {...}), check it's not None
-        """
-        pass
+        """Test Random Forest model creation."""
+        model = get_model("random_forest", {"n_estimators": 5, "random_state": 42})
+
+        assert model is not None
+        assert model.n_estimators == 5
 
     def test_invalid_model_type(self):
-        """Test that invalid model type raises ValueError.
-        TODO: Call get_model("invalid", {}), expect ValueError
-        """
-        pass
+        """Test that invalid model type raises ValueError."""
+        with pytest.raises(ValueError):
+            get_model("invalid", {})
 
 
 class TestTrainModel:
-    """TODO: Implement tests for model training."""
+    """Tests for model training."""
+
+    @staticmethod
+    def sample_data():
+        X = pd.DataFrame(
+            {
+                "feature_1": np.arange(20),
+                "feature_2": np.arange(20) % 3,
+            }
+        )
+        y = pd.Series([0, 1] * 10)
+        return X, y
 
     def test_train_model(self):
-        """Test model training completes.
-        TODO: Create sample data, train model, check it has predict method
-        """
-        pass
+        """Test model training completes."""
+        X, y = self.sample_data()
+
+        model = train_model(
+            X,
+            y,
+            "random_forest",
+            {"n_estimators": 5, "random_state": 42},
+        )
+
+        assert hasattr(model, "predict")
 
 
 class TestEvaluateModel:
-    """TODO: Implement tests for model evaluation."""
+    """Tests for model evaluation."""
 
     def test_evaluate_returns_metrics(self):
-        """Test evaluation returns accuracy and f1_score.
-        TODO: Train model, evaluate, check metrics dict has both keys
-        """
-        pass
+        """Test evaluation returns accuracy and f1_score."""
+        X = pd.DataFrame({"feature_1": np.arange(20), "feature_2": np.arange(20) % 3})
+        y = pd.Series([0, 1] * 10)
+        model = train_model(
+            X,
+            y,
+            "random_forest",
+            {"n_estimators": 5, "random_state": 42},
+        )
+
+        metrics = evaluate_model(model, X, y)
+
+        assert set(metrics) == {"accuracy", "f1_score"}
+        assert 0.0 <= metrics["accuracy"] <= 1.0
+        assert 0.0 <= metrics["f1_score"] <= 1.0
