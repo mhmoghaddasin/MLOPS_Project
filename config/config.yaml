@@ -1,0 +1,25 @@
+# ML Project Configuration
+# TODO: Fill in the values below
+
+data:
+  raw_path: "data/raw/"
+  processed_path: "data/processed/"
+  test_size:    # TODO: e.g., 0.2
+  random_state: # TODO: e.g., 42
+
+features:
+  scaling:      # TODO: "standard" or "minmax" or "none"
+  feature_selection_k: # TODO: e.g., 10
+
+model:
+  type:         # TODO: "random_forest", "logistic_regression", or "svm"
+  params:
+    # TODO: Add hyperparameters for your chosen model
+
+experiments:
+  mlflow_tracking_uri: "http://localhost:5000"
+  experiment_name: "mlops_homework_01"
+
+monitoring:
+  drift_threshold: # TODO: e.g., 0.05
+  log_path: "experiments/logs/"
