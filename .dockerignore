@@ -1,0 +1,13 @@
+.git
+.github
+.idea
+venv
+.venv
+__pycache__
+*.pyc
+data/raw
+data/processed
+data_versions
+experiments/mlruns
+experiments/logs
+HW_Mlops_01_edited.pdf

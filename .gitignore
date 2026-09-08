@@ -17,12 +17,20 @@ env/
 # Data (large files)
 data/raw/*
 data/processed/*
+data_versions/*.csv
 !data/raw/.gitkeep
 !data/processed/.gitkeep
 
 # Model files
 models/*.joblib
 models/*.pkl
+
+# Experiment outputs
+mlruns/
+experiments/mlruns/
+experiments/mlflow.db
+experiments/logs/*.json
+experiments/logs/*.jsonl
 
 # Secrets and credentials
 .env
