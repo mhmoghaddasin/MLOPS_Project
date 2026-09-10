@@ -1,4 +1,4 @@
-# MLOps Homework 01 - Customer Churn Prediction
+# MLOPS Project - Customer Churn Prediction
 
 ## Student Info
 - Name: MohammadHadi Moghaddasin
@@ -42,6 +42,30 @@ The project expects these paths:
 Dataset usage:
 - `dataset_v1.csv`: reference training data and final model training source
 - `dataset_v2.csv`: second data version for data versioning and drift detection
+
+Dataset address:
+- `dataset_v1.csv`: https://drive.google.com/file/d/1dF_84zIvCUnTd3BH2XLUGfNby0hmgXQC/view?usp=sharing
+- `dataset_v2.csv`: https://drive.google.com/file/d/1jwB1nBY0CL2lFD51IvP4wBOnNRrDq-V6/view?usp=sharing
+
+### Dataset Features
+
+Both datasets contain the same 12 feature columns and the target column `churn`.
+
+| Feature | Description |
+|---|---|
+| `months_tenure` | Customer tenure in months. |
+| `charges_monthly` | Customer's monthly bill amount. |
+| `charges_total` | Total amount paid by the customer to date. |
+| `services_num` | Number of active services. |
+| `tickets_support` | Number of support tickets submitted by the customer. |
+| `minutes_session_avg` | Average duration of each usage session. |
+| `frequency_login` | Number of logins per month. |
+| `length_contract` | Contract length in months; values are 1, 12, or 24. |
+| `days_delay_payment` | Number of days the customer is late in making payments. |
+| `score_credit` | Customer credit score. |
+| `age` | Customer age. |
+| `dependents_num` | Number of dependents. |
+| `churn` | Target variable: `0` means the customer stayed and `1` means the customer churned. |
 
 ## Project Structure
 ```text
