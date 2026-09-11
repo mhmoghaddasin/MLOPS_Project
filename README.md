@@ -168,7 +168,7 @@ This project uses a local SQLite MLflow backend:
 mlflow_tracking_uri: "sqlite:///experiments/mlflow.db"
 ```
 
-This was used instead of `http://localhost:5000` because `http://localhost:5000` requires a separate MLflow tracking server to be running before the pipeline starts. The SQLite backend lets the homework run locally with one command.
+This was used instead of `http://localhost:5000` because `http://localhost:5000` requires a separate MLflow tracking server to be running before the pipeline starts. The SQLite backend lets the project run locally with one command.
 
 Start MLflow UI with:
 
@@ -285,13 +285,13 @@ https://hub.docker.com/r/moghaddasin1366/mlops_project
 Build the Docker image:
 
 ```powershell
-docker build -t mlops-homework-01 .
+docker build -t mlops-project-01 .
 ```
 
 Run the local image:
 
 ```powershell
-docker run -p 8000:8000 mlops-homework-01
+docker run -p 8000:8000 mlops-project-01
 ```
 
 Pull and run the Docker Hub image:
